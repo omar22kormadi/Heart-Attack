@@ -82,7 +82,7 @@ python index.py
 
 | File | Description |
 |------|-------------|
-| `heart_attack_predictor_full.py` | Main code (training + evaluation + prediction) |
+| `index.py` | Main code (training + evaluation + prediction) |
 | `heart_attack_data.csv` | Input dataset (must be added manually) |
 | `heart_attack_model.pkl` | Saved trained model |
 | `scaler.pkl` | Saved StandardScaler used during training |
