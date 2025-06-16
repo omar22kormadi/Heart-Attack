@@ -48,8 +48,8 @@ clf.fit(X_train_scaled, y_train)
 y_pred = clf.predict(X_test_scaled)
 y_prob = clf.predict_proba(X_test_scaled)[:, 1]
 
-print(f"\n✅ Accuracy: {accuracy_score(y_test, y_pred):.2f}")
-print("\n📋 Classification Report:")
+print(f"\n Accuracy: {accuracy_score(y_test, y_pred):.2f}")
+print("\n Classification Report:")
 print(classification_report(y_test, y_pred))
 
 # Confusion Matrix
@@ -82,11 +82,11 @@ print(coef_df.sort_values("Abs_Coeff", ascending=False).head(10))
 joblib.dump(clf, "heart_attack_model.pkl")
 joblib.dump(scaler, "scaler.pkl")
 joblib.dump(X.columns.tolist(), "features.pkl")
-print("\n💾 Model and scaler saved to disk.")
+print("\n Model and scaler saved to disk.")
 
 # === 9. Prediction Interface ===
 def predict_heart_attack():
-    print("\n🩺 Enter patient data to assess heart attack risk:")
+    print("\n Enter patient data to assess heart attack risk:")
     input_data = []
 
     validation_rules = {
@@ -107,13 +107,13 @@ def predict_heart_attack():
                 input_data.append(val)
                 break
             except ValueError as e:
-                print(f"❌ {e}")
+                print(f" {e}")
 
     input_df = pd.DataFrame([input_data], columns=X.columns)
     input_scaled = scaler.transform(input_df)
     prob = clf.predict_proba(input_scaled)[0]
 
-    print(f"\n🔴 Heart Attack Risk: {prob[1]*100:.2f}%")
+    print(f"\n Heart Attack Risk: {prob[1]*100:.2f}%")
     print("✅ Safe" if prob[1] < 0.5 else "⚠️ High Risk!")
 
 if __name__ == "__main__":
