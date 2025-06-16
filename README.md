@@ -7,13 +7,27 @@ A machine learning system that predicts heart attack risk using logistic regress
 ## Table of Contents
 - [Heart Attack Risk Prediction System](#heart-attack-risk-prediction-system)
   - [Table of Contents](#table-of-contents)
+  - [Files](#files)
   - [Features](#features)
   - [Installation](#installation)
   - [How to Run](#how-to-run)
   - [Example Output](#example-output)
   - [Data Requirements](#data-requirements)
-  - [Files](#files)
-  - [License](#license)
+  - [Author](#author)
+
+---
+
+## Files
+
+| File | Description |
+|------|-------------|
+| `index.py` | Main code (training + evaluation + prediction) |
+| `heart_attack_data.csv` | Input dataset (must be added manually) |
+| `heart_attack_model.pkl` | Saved trained model |
+| `scaler.pkl` | Saved StandardScaler used during training |
+| `features.pkl` | List of feature names used by the model |
+
+---
 
 ## Features
 ✔️ Logistic Regression model trained on medical data  
@@ -76,19 +90,7 @@ python index.py
   - Target column named "heart_attack" (binary: 1=risk, 0=no risk)
 
 
----
 
-## Files
-
-| File | Description |
-|------|-------------|
-| `index.py` | Main code (training + evaluation + prediction) |
-| `heart_attack_data.csv` | Input dataset (must be added manually) |
-| `heart_attack_model.pkl` | Saved trained model |
-| `scaler.pkl` | Saved StandardScaler used during training |
-| `features.pkl` | List of feature names used by the model |
-
----
 
 ##  Author
 
