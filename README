@@ -9,10 +9,10 @@ A machine learning system that predicts heart attack risk using logistic regress
   - [Table of Contents](#table-of-contents)
   - [Features](#features)
   - [Installation](#installation)
-  - [Usage](#usage)
+  - [How to Run](#how-to-run)
+  - [Example Output](#example-output)
   - [Data Requirements](#data-requirements)
-  - [Output Interpretation](#output-interpretation)
-  - [Project Structure](#project-structure)
+  - [Files](#files)
   - [License](#license)
 
 ## Features
@@ -29,26 +29,45 @@ A machine learning system that predicts heart attack risk using logistic regress
 git clone https://github.com/omar22kormadi/Heart-Attack.git
 ```
 
-## Usage
+---
 
-1. Place your dataset as `heart_attack_data.csv` in the project root
-2. Run the prediction system:
+## How to Run
+
+1. Ensure you have Python 3.8+ installed
+2. Install dependencies:
+
+```bash
+pip install pandas numpy scikit-learn matplotlib seaborn joblib
+```
+
+3. Put your dataset in the same folder as `index.py` and name it `heart_attack_data.csv`
+4. Run the script:
+
 ```bash
 python index.py
 ```
-3. Follow the prompts to enter patient data
 
-Example output:
-```
-Model Accuracy: 0.87
-Enter patient details:
-Enter age: 45
-Enter total_cholesterol: 200
+---
+
+## Example Output
+
+```bash
+✅ Accuracy: 0.87
+
+📋 Classification Report:
+              precision    recall  f1-score   support
+           0       0.88      0.91      0.89       105
+           1       0.85      0.81      0.83        75
+
+🔍 Top Contributing Features:
+       Feature  Coefficient
+3        age         1.456
+5  cholesterol        1.123
+7         bp          0.983
 ...
-
-🔴 High Risk Probability: 72.34%
-🟢 Low Risk Probability: 27.66%
 ```
+
+---
 
 ## Data Requirements
 - CSV file named `heart_attack_data.csv`
@@ -56,19 +75,20 @@ Enter total_cholesterol: 200
   - Features: Various health metrics (numerical values)
   - Target column named "heart_attack" (binary: 1=risk, 0=no risk)
 
-## Output Interpretation
-| Output | Meaning |
-|--------|---------|
-| 🔴 High Risk Probability | Chance of heart attack occurring |
-| 🟢 Low Risk Probability | Chance of no heart attack |
 
-## Project Structure
-```
-.
-├── index.py    # Main prediction script
-├── heart_attack_data.csv        # Training dataset
-├── README.md                   # This documentation
-```
+---
+
+## Files
+
+| File | Description |
+|------|-------------|
+| `heart_attack_predictor_full.py` | Main code (training + evaluation + prediction) |
+| `heart_attack_data.csv` | Input dataset (must be added manually) |
+| `heart_attack_model.pkl` | Saved trained model |
+| `scaler.pkl` | Saved StandardScaler used during training |
+| `features.pkl` | List of feature names used by the model |
+
+---
 
 ## License
 This project is licensed under the MIT License
